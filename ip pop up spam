@@ -1,0 +1,6 @@
+LOOP 10
+DELAY 1000
+GUI r
+STRING https://www.example.com/business-ad
+ENTER
+ENDLOOP
