@@ -1,0 +1,19 @@
+# Set the time zone to UTC
+echo "Setting time zone to UTC..."
+rundll32.exe shell32.dll,Control_RunDLL timedate.cpl,,/z UTC
+
+# Set the language to French
+echo "Setting language to French..."
+rundll32.exe shell32.dll,Control_RunDLL intl.cpl,,/f French
+
+# Set the keyboard layout to French
+echo "Setting keyboard layout to French..."
+rundll32.exe shell32.dll,Control_RunDLL intl.cpl,,/k 00000406
+
+# Set the date format to DD/MM/YYYY
+echo "Setting date format to DD/MM/YYYY..."
+rundll32.exe shell32.dll,Control_RunDLL intl.cpl,,/d 1
+
+# Set the time format to 24-hour clock
+echo "Setting time format to 24-hour clock..."
+rundll32.exe shell32.dll,Control_RunDLL intl.cpl,,/t 1
