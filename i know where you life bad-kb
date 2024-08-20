@@ -1,0 +1,24 @@
+import requests
+import web browser
+
+# Get the public IP address of the computer
+ip_response = requests.get('https://api.ipify.org/')
+public_ip = ip_response.text.strip()
+
+# Get the geolocation data from the IP address
+geo_response = requests.get(f'https://ipapi.co/{public_ip}/json/')
+geo_data = geo_response.json()
+
+# Extract the latitude and longitude from the geolocation data
+latitude = geo_data['latitude']
+longitude = geo_data['longitude']
+
+# Open a map in the default browser with the geolocation data
+map_url = f'https://www.openstreetmap.org/#map=18/{latitude}/{longitude}'
+webbrowser.open(map_url)
+
+# Type out the message "I know where you live" using the Flipper Zero's keyboard emulation
+DELAY 1000
+GUI r
+STRING I know where you live
+ENTER
