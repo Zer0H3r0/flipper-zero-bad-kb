@@ -1,0 +1,21 @@
+# Fake Shutdown Script
+
+# Display fake shutdown screen
+powershell -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SystemInformation]::PrimaryMonitorSize = New-Object System.Drawing.Size(1024,768); $form = New-Object System.Windows.Forms.Form; $form.Text = 'Shutting Down...'; $form.Size = New-Object System.Drawing.Size(400,200); $form.StartPosition = 'CenterScreen'; $form.Topmost = $true; $form.Add_Shown({$form.Activate()}); $form.ShowDialog() | Out-Null"
+
+# Wait for 5 seconds to display the fake shutdown screen
+Start-Sleep -s 5
+
+# Choose an option: 1 for shutdown, 2 for restart
+$option = Read-Host "Enter 1 to shutdown or 2 to restart"
+
+if ($option -eq 1) {
+    # Shutdown the computer
+    powershell -Command "Stop-Computer -Force"
+} elseif ($option -eq 2) {
+    # Restart the computer
+    powershell -Command "Restart-Computer -Force"
+} else {
+    # Invalid option, exit the script
+    exit
+}
