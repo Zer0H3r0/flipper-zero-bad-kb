@@ -1,0 +1,33 @@
+# Scareware script
+
+# Wait for 5 seconds to let the user think everything is normal
+delay 5000
+
+# Clear the screen
+cls
+
+# Display a fake warning message
+echo "WARNING: VIRUS DETECTED!"
+echo "Your system has been infected with a malicious virus."
+echo "Immediate action is required to prevent data loss."
+echo "Please restart your computer and run a full system scan."
+
+# Wait for 10 seconds to let the user panic
+delay 10000
+
+# Clear the screen again
+cls
+
+# Display a fake "system crash" message
+echo "SYSTEM CRASH"
+echo "Your system has encountered a critical error."
+echo "Please restart your computer to continue."
+
+# Loop indefinitely to keep the user stuck in this fake error state
+while true
+  delay 1000
+  cls
+  echo "SYSTEM CRASH"
+  echo "Your system has encountered a critical error."
+  echo "Please restart your computer to continue."
+end
