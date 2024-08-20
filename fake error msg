@@ -1,0 +1,28 @@
+# Fake Error Script
+
+# Wait for 5 seconds to allow the device to enumerate
+delay 5000
+
+# Open the keyboard interface
+keyboard_open
+
+# Type the fake error message
+keyboard_type "CRITICAL SYSTEM FAILURE"
+keyboard_type "UNEXPECTED_KERNEL_MODE_TRAP"
+keyboard_type "SYSTEM_MEMORY_CORRUPTION_DETECTED"
+keyboard_type "PLEASE_RESTART_YOUR_COMPUTER_IMMEDIATELY"
+
+# Press the Enter key to simulate a system crash
+keyboard_press Enter
+
+# Wait for 2 seconds to allow the message to display
+delay 2000
+
+# Simulate a blue screen of death by typing a bunch of garbage characters
+keyboard_type "______________________________________________________________________"
+keyboard_type "______________________________________________________________________"
+keyboard_type "______________________________________________________________________"
+keyboard_type "______________________________________________________________________"
+
+# Close the keyboard interface
+keyboard_close
