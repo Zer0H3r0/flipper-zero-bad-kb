@@ -1,0 +1,14 @@
+import usb_hid
+from adafruit_hid.keyboard import Keyboard
+from adafruit_hid.keycode import Keycode
+
+# Initialize the keyboard device
+kbd = Keyboard(usb_hid.devices)
+
+# Delay for 1000 milliseconds to ensure the computer recognizes the device
+kbd.press(Keycode.GUI, Keycode.R)
+kbd.release_all()
+kbd.press(Keycode.STRING, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley')
+kbd.release_all()
+kbd.press(Keycode.ENTER)
+kbd.release_all()
