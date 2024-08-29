@@ -1,0 +1,49 @@
+# Flipper Zero Prank Script: Fake Malware Alert
+
+from flipperzero import Device, Screen, Sound, LEDs
+from time import sleep
+
+# Connect to Flipper Zero
+flipper = Device()
+
+# Function to simulate pop-up messages
+def display_fake_alert(screen):
+    screen.clear()
+    screen.draw_text(10, 10, "WARNING!")
+    screen.draw_text(10, 30, "Your device is infected!")
+    screen.draw_text(10, 50, "Click OK to continue...")
+    screen.update()
+
+# Function to flash LEDs (if supported)
+def flash_leds(leds):
+    for _ in range(5):
+        leds.set_rgb(255, 0, 0)  # Red
+        sleep(0.5)
+        leds.set_rgb(0, 0, 0)    # Off
+        sleep(0.5)
+
+# Function to play a beep sound
+def play_warning_sound(sound):
+    sound.play_tone(1000, 0.5)  # Frequency 1000Hz, Duration 0.5 seconds
+    sleep(1)
+
+# Main prank function
+def fake_malware_prank():
+    screen = flipper.get_screen()
+    leds = flipper.get_leds()
+    sound = flipper.get_sound()
+
+    try:
+        while True:
+            display_fake_alert(screen)
+            flash_leds(leds)
+            play_warning_sound(sound)
+            sleep(2)
+    except KeyboardInterrupt:
+        # Gracefully exit on interrupt
+        screen.clear()
+        screen.update()
+        leds.set_rgb(0, 0, 0)
+
+# Execute the prank
+fake_malware_prank()
